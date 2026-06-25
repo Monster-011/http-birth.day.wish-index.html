@@ -12,26 +12,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let uploadedBackgroundImage = null;
 
-  // Har baar naya random nature wallpaper load karne ka function
+  // Har baar bilkul naya nature wallpaper load karne ke liye function
   function setRandomNatureBackground() {
-      // Math.random() lagane se browser purani image cache nahi karega aur har baar bilkul naya wallpaper dega
-      const randomId = Math.floor(Math.random() * 1000);
-      document.body.style.backgroundImage = `url('https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1920&q=80&sig=${randomId}')`;
+      const randomSig = Math.floor(Math.random() * 5000);
+      const imageUrl = `https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1920&q=80&sig=${randomSig}`;
+      
+      document.body.style.backgroundImage = `url('${imageUrl}')`;
       document.body.style.backgroundSize = "cover";
   }
 
-  // Page load hote hi random background set karein
+  // Shuruat me random background set karein
   setRandomNatureBackground();
   nameInput.focus();
 
-  // Allow pressing Enter to submit
+  // Enter press karne par submit ho
   nameInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
           wishButton.click();
       }
   });
 
-  // Update filename display on file selection
+  // User ke photo upload karne ka logic
   backgroundUpload.addEventListener("change", () => {
       if (backgroundUpload.files.length > 0) {
           filenameDisplay.textContent = backgroundUpload.files[0].name;
@@ -46,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 
-  // Main wish button functionality
+  // Main wish button click karne par
   wishButton.addEventListener("click", () => {
       const name = nameInput.value;
       if (name.trim() === "") {
@@ -68,27 +69,25 @@ document.addEventListener("DOMContentLoaded", () => {
       nameInputSection.style.display = "none";
       wishSection.style.display = "block";
 
-      // Change background to uploaded image if available, else get a different random background
+      // Wish section ke liye alag random background (Celebration theme)
       if (uploadedBackgroundImage) {
           document.body.style.backgroundImage = `url('${uploadedBackgroundImage}')`;
       } else {
-          // Wish page ke liye ek alag celebration type random background
-          const randomId = Math.floor(Math.random() * 1000);
-          document.body.style.backgroundImage = `url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1920&q=80&sig=${randomId}')`;
+          const randomSig = Math.floor(Math.random() * 5000) + 1;
+          document.body.style.backgroundImage = `url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1920&q=80&sig=${randomSig}')`;
       }
       document.body.style.backgroundSize = "cover";
 
-      // Create confetti effect
       createConfetti();
   });
 
-  // Reset button functionality
+  // Reset button logic
   resetBtn.addEventListener("click", () => {
       nameInput.value = "";
       wishSection.style.display = "none";
       nameInputSection.style.display = "block";
       
-      // Reset karne par phir se naya background
+      // Reset par naya random background
       setRandomNatureBackground();
       
       filenameDisplay.textContent = "No file chosen";
@@ -96,12 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
       nameInput.focus();
   });
 
-  // Confetti creation function
+  // Confetti function
   function createConfetti() {
       const colors = ["#ff0055", "#00ffcc", "#0066ff", "#ffcc00", "#ff00ff", "#33ff33"];
       confettiContainer.innerHTML = "";
 
-      // 120 pieces for more dense effect
       for (let i = 0; i < 120; i++) {
           const confetti = document.createElement("div");
           confetti.className = "confetti";
@@ -109,10 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
           confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
           confetti.style.left = Math.random() * 100 + "vw";
           confetti.style.width = Math.random() * 8 + 6 + "px";
-          confetti.style.height = Math.random() * 15 + 5 + "px"; // Thoda rectangular shapes
+          confetti.style.height = Math.random() * 15 + 5 + "px";
           confetti.style.opacity = Math.random() * 0.6 + 0.4;
 
-          // Alag alag speed aur ghumne (rotation) ka effect
           const duration = Math.random() * 2.5 + 2;
           confetti.style.animationDuration = duration + "s";
           confetti.style.animationDelay = Math.random() * 0.5 + "s";
