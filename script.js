@@ -12,10 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let uploadedBackgroundImage = null;
 
-  // Har baar bilkul naya nature wallpaper load karne ke liye function
+  // Bilkul random nature wallpaper lane ka naya aur sahi tarika
   function setRandomNatureBackground() {
-      const randomSig = Math.floor(Math.random() * 5000);
-      const imageUrl = `https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1920&q=80&sig=${randomSig}`;
+      const randomSig = Math.floor(Math.random() * 10000);
+      // Yeh link har baar bilkul alag alag nature photo lekar aayega
+      const imageUrl = `https://images.unsplash.com/featured/1920x1080/?nature,landscape&sig=${randomSig}`;
       
       document.body.style.backgroundImage = `url('${imageUrl}')`;
       document.body.style.backgroundSize = "cover";
@@ -69,12 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
       nameInputSection.style.display = "none";
       wishSection.style.display = "block";
 
-      // Wish section ke liye alag random background (Celebration theme)
+      // Wish section ke liye alag random background (Celebration/Festive theme)
       if (uploadedBackgroundImage) {
           document.body.style.backgroundImage = `url('${uploadedBackgroundImage}')`;
       } else {
-          const randomSig = Math.floor(Math.random() * 5000) + 1;
-          document.body.style.backgroundImage = `url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1920&q=80&sig=${randomSig}')`;
+          const randomSig = Math.floor(Math.random() * 10000) + 1;
+          document.body.style.backgroundImage = `url('https://images.unsplash.com/featured/1920x1080/?celebration,party&sig=${randomSig}')`;
       }
       document.body.style.backgroundSize = "cover";
 
