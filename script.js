@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let uploadedBackgroundImage = null;
 
-  // Bilkul random nature wallpaper lane ka naya aur sahi tarika
+  // Picsum API ka use karke 100% working random wallpaper logic
   function setRandomNatureBackground() {
-      const randomSig = Math.floor(Math.random() * 10000);
-      // Yeh link har baar bilkul alag alag nature photo lekar aayega
-      const imageUrl = `https://images.unsplash.com/featured/1920x1080/?nature,landscape&sig=${randomSig}`;
+      const randomSig = Math.floor(Math.random() * 1000);
+      // Picsum har baar random nature/landscape jaisi high-quality image return karega
+      const imageUrl = `https://picsum.photos/1920/1080?random=${randomSig}`;
       
       document.body.style.backgroundImage = `url('${imageUrl}')`;
       document.body.style.backgroundSize = "cover";
@@ -70,12 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
       nameInputSection.style.display = "none";
       wishSection.style.display = "block";
 
-      // Wish section ke liye alag random background (Celebration/Festive theme)
+      // Wish section ke liye alag random background
       if (uploadedBackgroundImage) {
           document.body.style.backgroundImage = `url('${uploadedBackgroundImage}')`;
       } else {
-          const randomSig = Math.floor(Math.random() * 10000) + 1;
-          document.body.style.backgroundImage = `url('https://images.unsplash.com/featured/1920x1080/?celebration,party&sig=${randomSig}')`;
+          const randomSig = Math.floor(Math.random() * 1000) + 50;
+          document.body.style.backgroundImage = `url('https://picsum.photos/1920/1080?random=${randomSig}')`;
       }
       document.body.style.backgroundSize = "cover";
 
