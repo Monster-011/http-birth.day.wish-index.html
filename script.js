@@ -12,7 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let uploadedBackgroundImage = null;
 
-  // Focus on name input when page loads
+  // Har baar naya random nature wallpaper load karne ka function
+  function setRandomNatureBackground() {
+      // Math.random() lagane se browser purani image cache nahi karega aur har baar bilkul naya wallpaper dega
+      const randomId = Math.floor(Math.random() * 1000);
+      document.body.style.backgroundImage = `url('https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1920&q=80&sig=${randomId}')`;
+      document.body.style.backgroundSize = "cover";
+  }
+
+  // Page load hote hi random background set karein
+  setRandomNatureBackground();
   nameInput.focus();
 
   // Allow pressing Enter to submit
@@ -46,26 +55,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const wishes = [
-          `...May your day be filled with joy😃and laughter😁!`,
-          `..Wishing you a year filled with happiness😆😆and success,!`,
-          `May all your dreams🤙🤙come true on your special day,!`,
-          `Sending you warm wishes🎉and a day as bright as your smile☺️☺️,!`,
-          `Happy birthday🎂🎂, ${name}! May this year bring you endless blessings✨✨.`,
+          `...May your day be filled with joy 😃 and laughter 😁!`,
+          `..Wishing you a year filled with happiness 😆😆 and success!`,
+          `May all your dreams 🤙🤙 come true on your special day!`,
+          `Sending you warm wishes 🎉 and a day as bright as your smile ☺️☺️!`,
+          `Happy birthday 🎂🎂, ${name}! May this year bring you endless blessings ✨✨.`,
       ];
 
-      birthdayTitle.textContent = `Happy Birthday🎂✌️, ${name}!`;
+      birthdayTitle.textContent = `Happy Birthday 🎂✌️, ${name}!`;
       birthdayMessage.innerHTML = wishes.join("<br><br>");
 
       nameInputSection.style.display = "none";
       wishSection.style.display = "block";
 
-      // Change background to uploaded image if available
+      // Change background to uploaded image if available, else get a different random background
       if (uploadedBackgroundImage) {
           document.body.style.backgroundImage = `url('${uploadedBackgroundImage}')`;
       } else {
-          // Optionally set a default background for the second page if no image is uploaded
-          document.body.style.backgroundImage = "none";
-          document.body.style.backgroundColor = "#f0f0f0"; // Or any default color
+          // Wish page ke liye ek alag celebration type random background
+          const randomId = Math.floor(Math.random() * 1000);
+          document.body.style.backgroundImage = `url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1920&q=80&sig=${randomId}')`;
       }
       document.body.style.backgroundSize = "cover";
 
@@ -78,46 +87,41 @@ document.addEventListener("DOMContentLoaded", () => {
       nameInput.value = "";
       wishSection.style.display = "none";
       nameInputSection.style.display = "block";
-      document.body.style.backgroundImage = "url('HD-landscape-photographs-51.jpg')";
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundColor = ""; // Remove any default color
+      
+      // Reset karne par phir se naya background
+      setRandomNatureBackground();
+      
       filenameDisplay.textContent = "No file chosen";
       uploadedBackgroundImage = null;
-
-      // Focus on name input
       nameInput.focus();
   });
 
   // Confetti creation function
   function createConfetti() {
-      const colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"];
-
-      // Clear any existing confetti
+      const colors = ["#ff0055", "#00ffcc", "#0066ff", "#ffcc00", "#ff00ff", "#33ff33"];
       confettiContainer.innerHTML = "";
 
-      // Create 100 confetti pieces
-      for (let i = 0; i < 100; i++) {
+      // 120 pieces for more dense effect
+      for (let i = 0; i < 120; i++) {
           const confetti = document.createElement("div");
           confetti.className = "confetti";
 
-          // Random styling
           confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
           confetti.style.left = Math.random() * 100 + "vw";
-          confetti.style.width = Math.random() * 10 + 5 + "px";
-          confetti.style.height = Math.random() * 10 + 5 + "px";
-          confetti.style.opacity = Math.random() * 0.5 + 0.5;
+          confetti.style.width = Math.random() * 8 + 6 + "px";
+          confetti.style.height = Math.random() * 15 + 5 + "px"; // Thoda rectangular shapes
+          confetti.style.opacity = Math.random() * 0.6 + 0.4;
 
-          // Random animation duration
-          const duration = Math.random() * 3 + 2;
+          // Alag alag speed aur ghumne (rotation) ka effect
+          const duration = Math.random() * 2.5 + 2;
           confetti.style.animationDuration = duration + "s";
+          confetti.style.animationDelay = Math.random() * 0.5 + "s";
 
-          // Add to container
           confettiContainer.appendChild(confetti);
 
-          // Remove after animation completes
           setTimeout(() => {
               confetti.remove();
-          }, duration * 1000);
+          }, (duration + 0.5) * 1000);
       }
   }
 });
