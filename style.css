@@ -1,37 +1,52 @@
 body {
-  font-family: "Georgia", serif;
+  font-family: 'Poppins', 'Georgia', serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-image: url("HD-landscape-photographs-51.jpg"); /* Landscape for first page */
-  background-size: cover; /* Auto adjust background size */
-  background-repeat: no-repeat; /* Prevent image repetition */
+  background-color: #111; /* Fallback color */
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  color: #5e087a;
-  transition: background-image 0.5s ease; /* Smooth transition for background change */
+  color: #3a005c;
+  overflow-x: hidden;
+  transition: background-image 0.8s ease-in-out; /* Smooth transition */
 }
 
 .container {
-  background-color: rgba(212, 231, 236, 0.8);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgb(5, 185, 245);
+  /* Ultra-stylish Glassmorphism effect */
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(9, 222, 233, 0.4);
   text-align: center;
   max-width: 90%;
-  width: 500px;
+  width: 450px;
   margin: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 #name-input-section {
-  animation: fadeInSlideUp 1s ease-out;
-  margin-bottom: 20px; /* Add some space below the input section */
+  animation: fadeInSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#name-input-section h1 {
+  font-size: 1.8rem;
+  color: #4a0e4e;
+  margin-bottom: 5px;
+}
+
+#name-input-section p {
+  font-weight: bold;
+  color: #555;
 }
 
 #name-input-section > div {
-  margin-top: 10px; /* Space for the upload button and filename */
+  margin-top: 15px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,18 +54,23 @@ body {
 
 .upload-btn {
   display: inline-block;
-  margin-bottom: 5px;
+  background-color: #6200ea !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  padding: 8px 15px !important;
 }
 
 #filename {
-  font-size: 0.9em;
-  color: #333;
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 5px;
+  font-style: italic;
 }
 
 @keyframes fadeInSlideUp {
   0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
   }
   100% {
       opacity: 1;
@@ -59,86 +79,105 @@ body {
 }
 
 #wish-section {
-  margin-top: 20px;
-  animation: fadeInSlideUp 1s ease-out;
+  animation: fadeInSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 input[type="text"] {
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #6d41cc;
-  border-radius: 5px;
-  width: 80%;
-  font-family: "Times New Roman", serif;
+  padding: 12px;
+  margin: 15px 0;
+  border: 2px solid #bd93f9;
+  border-radius: 8px;
+  width: 85%;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  border-color: #6200ea;
+  box-shadow: 0 0 8px rgba(98, 0, 234, 0.3);
 }
 
 .btn {
-  background-color: #09dee9;
-  color: rgb(255, 3, 3);
-  padding: 12px 20px;
+  background: linear-gradient(135deg, #09dee9, #00a8ff);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  font-weight: bold;
+  padding: 12px 25px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 16px;
-  font-family: "Garamond", serif;
-  margin: 5px;
-  transition: background-color 0.3s, transform 0.2s;
+  margin: 8px;
+  box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #6e7d6f;
-  color: rgb(179, 0, 255);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff0055, #ff5500);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 0, 85, 0.4);
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: translateY(-1px);
 }
 
 #birthday-title {
-  color: #af2f19;
-  font-family: "Brush Script MT", cursive;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  color: #ff0055;
+  font-family: 'Brush Script MT', cursive, sans-serif;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
 }
 
 #birthday-message {
-  font-family: "Palatino", serif;
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 500;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
-/* Confetti styles */
+/* Confetti aur behtar fall animation ke sath */
 .confetti {
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #f00;
-  opacity: 0.7;
+  top: -20px;
+  opacity: 0.8;
+  border-radius: 2px;
   animation: fall linear forwards;
+  pointer-events: none;
 }
 
 @keyframes fall {
-  to {
-      transform: translateY(100vh) rotate(360deg);
+  0% {
+      transform: translateY(0) rotate(0deg) translateX(0);
+  }
+  50% {
+      transform: translateY(50vh) rotate(180deg) translateX(20px);
+  }
+  100% {
+      transform: translateY(105vh) rotate(360deg) translateX(-20px);
       opacity: 0;
   }
 }
 
-/* Responsive adjustments */
+/* Mobile responsive */
 @media (max-width: 600px) {
   .container {
-      padding: 20px;
+      padding: 30px 20px;
   }
-
   #birthday-title {
-      font-size: 2rem;
+      font-size: 2.3rem;
   }
-
   .btn {
-      padding: 10px 15px;
-      font-size: 14px;
-      width: 100%;
-      margin: 5px 0;
+      width: 90%;
   }
 }
