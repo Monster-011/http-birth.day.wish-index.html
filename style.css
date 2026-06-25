@@ -5,17 +5,17 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #111; /* Fallback color */
+  background-color: #111; /* Jab tak image load na ho tab tak ke liye */
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   color: #3a005c;
   overflow-x: hidden;
-  transition: background-image 0.8s ease-in-out; /* Smooth transition */
+  transition: background-image 0.8s ease-in-out;
 }
 
 .container {
-  /* Ultra-stylish Glassmorphism effect */
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -146,7 +146,6 @@ input[type="text"]:focus {
   margin-bottom: 25px;
 }
 
-/* Confetti aur behtar fall animation ke sath */
 .confetti {
   position: absolute;
   top: -20px;
@@ -169,7 +168,6 @@ input[type="text"]:focus {
   }
 }
 
-/* Mobile responsive */
 @media (max-width: 600px) {
   .container {
       padding: 30px 20px;
