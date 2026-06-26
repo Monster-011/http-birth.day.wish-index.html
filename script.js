@@ -9,32 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const confettiContainer = document.getElementById("confetti-container");
   const backgroundUpload = document.getElementById("backgroundUpload");
   const filenameDisplay = document.getElementById("filename");
-  const container = document.querySelector(".container"); // Container select kiya
+  const container = document.querySelector(".container");
 
   let uploadedBackgroundImage = null;
 
-  // Picsum API ka use karke 100% working random wallpaper logic
   function setRandomNatureBackground() {
       const randomSig = Math.floor(Math.random() * 1000);
-      // Picsum har baar random nature/landscape jaisi high-quality image return karega
       const imageUrl = `https://picsum.photos/1920/1080?random=${randomSig}`;
-      
       document.body.style.backgroundImage = `url('${imageUrl}')`;
       document.body.style.backgroundSize = "cover";
   }
 
-  // Shuruat me random background set karein
   setRandomNatureBackground();
   nameInput.focus();
 
-  // Enter press karne par submit ho
   nameInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
           wishButton.click();
       }
   });
 
-  // User ke photo upload karne ka logic
   backgroundUpload.addEventListener("change", () => {
       if (backgroundUpload.files.length > 0) {
           filenameDisplay.textContent = backgroundUpload.files[0].name;
@@ -49,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 
-  // Main wish button click karne par
   wishButton.addEventListener("click", () => {
       const name = nameInput.value;
       if (name.trim() === "") {
@@ -58,23 +51,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const wishes = [
-          `...May your day be filled with joy 😃 and laughter 😁!`,
-          `..Wishing you a year filled with happiness 😆😆 and success!`,
+          `May your day be filled with joy 😃 and laughter 😁!`,
+          `Wishing you a year filled with happiness 😆😆 and success!`,
           `May all your dreams 🤙🤙 come true on your special day!`,
           `Sending you warm wishes 🎉 and a day as bright as your smile ☺️☺️!`,
-          `Happy birthday 🎂🎂, ${name}! May this year bring you endless blessings ✨✨.`,
+          `Happy birthday 🎂🎂, ${name}! May this year bring endless blessings ✨✨.`,
       ];
 
       birthdayTitle.textContent = `Happy Birthday 🎂✌️, ${name}!`;
-      birthdayMessage.innerHTML = wishes.join("<br><br>");
+      // Yahan double br se single br kiya gap kam karne ke liye
+      birthdayMessage.innerHTML = wishes.join("<br>"); 
 
       nameInputSection.style.display = "none";
       wishSection.style.display = "block";
       
-      // Container ko transparent banane ke liye class add ki
       container.classList.add("transparent-bg");
 
-      // Wish section ke liye alag random background
       if (uploadedBackgroundImage) {
           document.body.style.backgroundImage = `url('${uploadedBackgroundImage}')`;
       } else {
@@ -86,16 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
       createConfetti();
   });
 
-  // Reset button logic
   resetBtn.addEventListener("click", () => {
       nameInput.value = "";
       wishSection.style.display = "none";
       nameInputSection.style.display = "block";
       
-      // Transparent class hata di taaki pehla page normal dikhe
       container.classList.remove("transparent-bg");
-      
-      // Reset par naya random background
       setRandomNatureBackground();
       
       filenameDisplay.textContent = "No file chosen";
@@ -103,19 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
       nameInput.focus();
   });
 
-  // Confetti function
   function createConfetti() {
       const colors = ["#ff0055", "#00ffcc", "#0066ff", "#ffcc00", "#ff00ff", "#33ff33"];
       confettiContainer.innerHTML = "";
 
-      for (let i = 0; i < 120; i++) {
+      for (let i = 0; i < 100; i++) { /* 120 se 100 kiya screen clean rakhne ke liye */
           const confetti = document.createElement("div");
           confetti.className = "confetti";
 
           confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
           confetti.style.left = Math.random() * 100 + "vw";
-          confetti.style.width = Math.random() * 8 + 6 + "px";
-          confetti.style.height = Math.random() * 15 + 5 + "px";
+          confetti.style.width = Math.random() * 6 + 5 + "px";
+          confetti.style.height = Math.random() * 12 + 5 + "px";
           confetti.style.opacity = Math.random() * 0.6 + 0.4;
 
           const duration = Math.random() * 2.5 + 2;
