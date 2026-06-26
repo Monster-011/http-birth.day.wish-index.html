@@ -27,6 +27,14 @@ body {
   width: 450px;
   margin: 20px;
   border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background-color 0.5s ease, border 0.5s ease;
+}
+
+/* Naya style: Jab wish section aayega tab background transparent ho jayega */
+.container.transparent-bg {
+  background-color: rgba(255, 255, 255, 0.15); /* Ekdum halka background taaki image dikhe */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 #name-input-section {
@@ -131,6 +139,7 @@ input[type="text"]:focus {
   font-size: 3rem;
   margin-bottom: 15px;
   animation: pulse 1.5s infinite alternate;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Title par drop shadow */
 }
 
 @keyframes pulse {
@@ -139,11 +148,12 @@ input[type="text"]:focus {
 }
 
 #birthday-message {
-  font-size: 1.1rem;
-  color: #444;
-  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fff; /* Text ko white kiya taaki kisi bhi image par dikhe */
+  font-weight: 600;
   line-height: 1.6;
   margin-bottom: 25px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), -1px -1px 0 rgba(0,0,0,0.5); /* Text ke peeche shadow taaki photo me text chhupe na */
 }
 
 .confetti {
