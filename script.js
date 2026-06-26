@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const confettiContainer = document.getElementById("confetti-container");
   const backgroundUpload = document.getElementById("backgroundUpload");
   const filenameDisplay = document.getElementById("filename");
+  const container = document.querySelector(".container"); // Container select kiya
 
   let uploadedBackgroundImage = null;
 
@@ -69,6 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       nameInputSection.style.display = "none";
       wishSection.style.display = "block";
+      
+      // Container ko transparent banane ke liye class add ki
+      container.classList.add("transparent-bg");
 
       // Wish section ke liye alag random background
       if (uploadedBackgroundImage) {
@@ -87,6 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
       nameInput.value = "";
       wishSection.style.display = "none";
       nameInputSection.style.display = "block";
+      
+      // Transparent class hata di taaki pehla page normal dikhe
+      container.classList.remove("transparent-bg");
       
       // Reset par naya random background
       setRandomNatureBackground();
