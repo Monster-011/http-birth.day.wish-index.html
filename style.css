@@ -5,7 +5,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #111; /* Jab tak image load na ho tab tak ke liye */
+  background-color: #111; 
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -15,46 +15,50 @@ body {
   transition: background-image 0.8s ease-in-out;
 }
 
+/* Card size chhota kiya taaki background zyada dikhe */
 .container {
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(9, 222, 233, 0.4);
+  padding: 25px 20px; /* Padding kam ki */
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 15px rgba(9, 222, 233, 0.3);
   text-align: center;
-  max-width: 90%;
-  width: 450px;
+  max-width: 85%;
+  width: 360px; /* Width 450px se 360px kar di */
   margin: 20px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   transition: background-color 0.5s ease, border 0.5s ease;
 }
 
-/* Naya style: Jab wish section aayega tab background transparent ho jayega */
 .container.transparent-bg {
-  background-color: rgba(255, 255, 255, 0.15); /* Ekdum halka background taaki image dikhe */
+  background-color: rgba(255, 255, 255, 0.15); 
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 #name-input-section {
   animation: fadeInSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Heading size chhota kiya aur gap kam kiya */
 #name-input-section h1 {
-  font-size: 1.8rem;
+  font-size: 1.4rem; /* 1.8rem se chhota kiya */
   color: #4a0e4e;
-  margin-bottom: 5px;
+  margin: 0 0 8px 0;
 }
 
 #name-input-section p {
   font-weight: bold;
   color: #555;
+  font-size: 0.9rem; /* Chhota kiya */
+  margin: 0 0 10px 0;
 }
 
+/* Lines ke beech ka gap kam kiya */
 #name-input-section > div {
-  margin-top: 15px;
-  margin-bottom: 20px;
+  margin-top: 8px;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,21 +68,21 @@ body {
   display: inline-block;
   background-color: #6200ea !important;
   color: #fff !important;
-  font-size: 14px !important;
-  padding: 8px 15px !important;
+  font-size: 12px !important; /* Button text chhota kiya */
+  padding: 6px 12px !important;
 }
 
 #filename {
-  font-size: 0.85em;
+  font-size: 0.75em;
   color: #666;
-  margin-top: 5px;
+  margin-top: 3px;
   font-style: italic;
 }
 
 @keyframes fadeInSlideUp {
   0% {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
   }
   100% {
       opacity: 1;
@@ -91,12 +95,12 @@ body {
 }
 
 input[type="text"] {
-  padding: 12px;
-  margin: 15px 0;
+  padding: 10px;
+  margin: 10px 0;
   border: 2px solid #bd93f9;
   border-radius: 8px;
   width: 85%;
-  font-size: 16px;
+  font-size: 14px; /* Input text size chhota kiya */
   outline: none;
   transition: border-color 0.3s;
   text-align: center;
@@ -104,56 +108,55 @@ input[type="text"] {
 
 input[type="text"]:focus {
   border-color: #6200ea;
-  box-shadow: 0 0 8px rgba(98, 0, 234, 0.3);
+  box-shadow: 0 0 6px rgba(98, 0, 234, 0.2);
 }
 
 .btn {
   background: linear-gradient(135deg, #09dee9, #00a8ff);
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
   font-weight: bold;
-  padding: 12px 25px;
+  padding: 10px 20px; /* Padding thodi kam ki */
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
-  margin: 8px;
-  box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+  font-size: 14px; /* Size chhota kiya */
+  margin: 5px;
+  box-shadow: 0 4px 10px rgba(0, 168, 255, 0.25);
   transition: all 0.3s ease;
 }
 
 .btn:hover {
   background: linear-gradient(135deg, #ff0055, #ff5500);
   color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 0, 85, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 85, 0.35);
 }
 
-.btn:active {
-  transform: translateY(-1px);
-}
-
+/* Second Page (Wish Page) ke text ka size chhota kiya */
 #birthday-title {
   color: #ff0055;
   font-family: 'Brush Script MT', cursive, sans-serif;
-  font-size: 3rem;
-  margin-bottom: 15px;
+  font-size: 2.2rem; /* 3rem se chhota kiya */
+  margin: 0 0 10px 0;
   animation: pulse 1.5s infinite alternate;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Title par drop shadow */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes pulse {
   0% { transform: scale(1); }
-  100% { transform: scale(1.03); }
+  100% { transform: scale(1.02); }
 }
 
+/* Wish lines ke beech ka gap aur font size chhota kiya */
 #birthday-message {
-  font-size: 1.2rem;
-  color: #fff; /* Text ko white kiya taaki kisi bhi image par dikhe */
+  font-size: 0.95rem; /* 1.2rem se chhota kiya */
+  color: #fff;
   font-weight: 600;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), -1px -1px 0 rgba(0,0,0,0.5); /* Text ke peeche shadow taaki photo me text chhupe na */
+  line-height: 1.4; /* Lines ke beech ka gap tight kiya */
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9), -1px -1px 0 rgba(0,0,0,0.5);
 }
 
 .confetti {
@@ -166,26 +169,20 @@ input[type="text"]:focus {
 }
 
 @keyframes fall {
-  0% {
-      transform: translateY(0) rotate(0deg) translateX(0);
-  }
-  50% {
-      transform: translateY(50vh) rotate(180deg) translateX(20px);
-  }
-  100% {
-      transform: translateY(105vh) rotate(360deg) translateX(-20px);
-      opacity: 0;
-  }
+  0% { transform: translateY(0) rotate(0deg) translateX(0); }
+  50% { transform: translateY(50vh) rotate(180deg) translateX(15px); }
+  100% { transform: translateY(105vh) rotate(360deg) translateX(-15px); opacity: 0; }
 }
 
 @media (max-width: 600px) {
   .container {
-      padding: 30px 20px;
+      padding: 20px 15px;
+      width: 88%;
   }
   #birthday-title {
-      font-size: 2.3rem;
+      font-size: 1.8rem;
   }
   .btn {
-      width: 90%;
+      width: 85%;
   }
 }
